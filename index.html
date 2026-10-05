@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orange Q AI | Orange Plant Quality Assessment</title>
+
+    <meta
+        name="description"
+        content="AI-assisted orange nursery planting material quality assessment and expert verification platform."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     BACKGROUND EFFECTS
+========================================================= -->
+
+<div class="background-orb orb-orange"></div>
+<div class="background-orb orb-blue"></div>
+<div class="background-orb orb-red"></div>
+<div class="background-grid"></div>
+
+<!-- =========================================================
+     APP SHELL
+========================================================= -->
+
+<div id="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar glass-panel">
+
+        <div class="brand">
+            <div class="brand-mark">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+
+            <div>
+                <div class="brand-name">Orange <span>Q</span> AI</div>
+                <div class="brand-subtitle">Plant Quality Intelligence</div>
+            </div>
+        </div>
+
+        <div class="sidebar-status">
+            <span class="status-dot online"></span>
+            AI Engine Online
+        </div>
+
+        <nav class="navigation">
+
+            <button class="nav-item active" data-view="dashboard">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </button>
+
+            <button class="nav-item" data-view="assessment">
+                <i class="fa-solid fa-camera"></i>
+                <span>AI Assessment</span>
+            </button>
+
+            <button class="nav-item" data-view="truetype">
+                <i class="fa-solid fa-code-compare"></i>
+                <span>True-to-Type</span>
+            </button>
+
+            <button class="nav-item" data-view="expert">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Expert Review</span>
+                <span class="nav-badge" id="expertBadge">0</span>
+            </button>
+
+            <button class="nav-item" data-view="reports">
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>Final Reports</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="mini-info glass-inner">
+                <div class="mini-info-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <strong>Human-in-the-loop</strong>
+                    <small>Expert verification enabled</small>
+                </div>
+            </div>
+
+            <button class="nav-item" data-view="assessment">
+                <i class="fa-solid fa-plus"></i>
+                <span>New Assessment</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar glass-panel">
+
+            <div class="breadcrumb">
+                <span id="pageEyebrow">AI AGRICULTURE PLATFORM</span>
+                <strong id="pageTitle">Dashboard</strong>
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="system-indicator">
+                    <span class="status-dot online"></span>
+                    System Ready
+                </div>
+
+                <button
+                    class="icon-button"
+                    id="themeToggle"
+                    title="Toggle light/dark mode"
+                    aria-label="Toggle theme"
+                >
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button
+                    class="icon-button"
+                    id="notificationButton"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="role-pill">
+                    <i class="fa-solid fa-user"></i>
+                    <span id="currentRole">Uploader</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             DASHBOARD VIEW
+        ====================================================== -->
+
+        <section class="view active-view" id="view-dashboard">
+
+            <div class="hero-section">
+
+                <div class="hero-copy">
+
+                    <span class="eyebrow">
+                        <span class="pulse-dot"></span>
+                        AI-ASSISTED NURSERY QUALITY SCREENING
+                    </span>
+
+                    <h1>
+                        Smarter
+                        <span>Orange Plant</span>
+                        Selection.
+                    </h1>
+
+                    <p>
+                        Screen planting material using AI-assisted visual assessment,
+                        true-to-type screening, explainable evidence and expert
+                        verification — all in one connected workflow.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <button class="primary-button" data-view="assessment">
+                            <i class="fa-solid fa-camera"></i>
+                            Start New Assessment
+                            <i class="fa-solid fa-arrow-right button-arrow"></i>
+                        </button>
+
+                        <button class="secondary-button" data-view="expert">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            Expert Review
+                        </button>
+
+                    </div>
+
+                    <div class="hero-trust">
+
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Image Quality Gate
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Explainable AI
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Human Verification
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-visual">
+
+                    <div class="plant-visual glass-panel">
+
+                        <div class="scan-line"></div>
+
+                        <div class="visual-top">
+                            <span>
+                                <span class="status-dot online"></span>
+                                AI VISION
+                            </span>
+
+                            <span class="visual-live">
+                                LIVE
+                            </span>
+                        </div>
+
+                        <div class="plant-symbol">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+
+                        <div class="visual-label">
+                            <strong>Plant Vision Analysis</strong>
+                            <small>Health • Vigour • Structure</small>
+                        </div>
+
+                        <div class="visual-metrics">
+
+                            <div>
+                                <span>Health</span>
+                                <strong>94%</strong>
+                            </div>
+
+                            <div>
+                                <span>Vigour</span>
+                                <strong>89%</strong>
+                            </div>
+
+                            <div>
+                                <span>Similarity</span>
+                                <strong>91%</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div>
+                        <span>Total Plants</span>
+                        <strong id="totalPlants">0</strong>
+                        <small>assessments recorded</small>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div>
+                        <span>Suitable</span>
+                        <strong id="suitablePlants">0</strong>
+                        <small>recommended plants</small>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon yellow">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <div>
+                        <span>Expert Review</span>
+                        <strong id="pendingPlants">0</strong>
+                        <small>cases requiring review</small>
+                    </div>
+                </div>
+
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon red">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div>
+                        <span>Not Recommended</span>
+                        <strong id="rejectedPlants">0</strong>
+                        <small>quality-risk cases</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD CONTENT -->
+
+            <div class="dashboard-grid">
+
+                <div class="dashboard-card glass-panel chart-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <span class="eyebrow">QUALITY DISTRIBUTION</span>
+                            <h2>Plant Assessment Overview</h2>
+                        </div>
+
+                        <span class="live-label">
+                            <span class="status-dot online"></span>
+                            Live Data
+                        </span>
+                    </div>
+
+                    <div class="chart-layout">
+
+                        <div class="donut-container">
+                            <div class="donut-chart" id="donutChart">
+                                <div class="donut-center">
+                                    <strong id="donutTotal">0</strong>
+                                    <span>Plants</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-legend">
+
+                            <div class="legend-row">
+                                <span>
+                                    <i class="legend-dot green-dot"></i>
+                                    Suitable
+                                </span>
+                                <strong id="legendSuitable">0</strong>
+                            </div>
+
+                            <div class="legend-row">
+                                <span>
+                                    <i class="legend-dot yellow-dot"></i>
+                                    Questionable
+                                </span>
+                                <strong id="legendQuestionable">0</strong>
+                            </div>
+
+                            <div class="legend-row">
+                                <span>
+                                    <i class="legend-dot red-dot"></i>
+                                    Not Recommended
+                                </span>
+                                <strong id="legendRejected">0</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card glass-panel">
+
+                    <div class="card-heading">
+                        <div>
+                            <span class="eyebrow">RECENT ACTIVITY</span>
+                            <h2>Latest Assessments</h2>
+                        </div>
+                    </div>
+
+                    <div id="recentAssessments" class="recent-list">
+                        <!-- JS -->
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUALITY FACTORS -->
+
+            <div class="dashboard-card glass-panel factor-dashboard">
+
+                <div class="card-heading">
+                    <div>
+                        <span class="eyebrow">AI PERFORMANCE VIEW</span>
+                        <h2>Assessment Factors</h2>
+                    </div>
+
+                    <button
+                        class="text-button"
+                        data-view="assessment"
+                    >
+                        Run Assessment
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="factor-grid">
+
+                    <div class="factor-item">
+                        <div>
+                            <span>Plant Health</span>
+                            <strong>92%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <span class="progress-fill orange-fill" style="width:92%"></span>
+                        </div>
+                    </div>
+
+                    <div class="factor-item">
+                        <div>
+                            <span>Plant Vigour</span>
+                            <strong>88%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <span class="progress-fill blue-fill" style="width:88%"></span>
+                        </div>
+                    </div>
+
+                    <div class="factor-item">
+                        <div>
+                            <span>Leaf Condition</span>
+                            <strong>91%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <span class="progress-fill green-fill" style="width:91%"></span>
+                        </div>
+                    </div>
+
+                    <div class="factor-item">
+                        <div>
+                            <span>True-to-Type</span>
+                            <strong>90%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <span class="progress-fill purple-fill" style="width:90%"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             AI ASSESSMENT VIEW
+        ====================================================== -->
+
+        <section class="view" id="view-assessment">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">STEP 01 • PLANT INTAKE</span>
+                    <h1>AI Plant Assessment</h1>
+                    <p>
+                        Upload a clear plant image and let the prototype perform
+                        an image-quality gate followed by AI-assisted assessment.
+                    </p>
+                </div>
+
+                <div class="header-chip">
+                    <span class="status-dot online"></span>
+                    Demo AI Engine
+                </div>
+
+            </div>
+
+
+            <div class="assessment-layout">
+
+                <!-- UPLOAD -->
+
+                <div class="glass-panel upload-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <span class="eyebrow">PLANT IMAGE</span>
+                            <h2>Upload Evidence</h2>
+                        </div>
+                    </div>
+
+                    <div
+                        class="upload-zone"
+                        id="uploadZone"
+                    >
+
+                        <input
+                            type="file"
+                            id="plantImage"
+                            accept="image/*"
+                            hidden
+                        >
+
+                        <div
+                            class="upload-placeholder"
+                            id="uploadPlaceholder"
+                        >
+                            <div class="upload-icon">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </div>
+
+                            <h3>Drop plant image here</h3>
+
+                            <p>
+                                or click to browse from your device
+                            </p>
+
+                            <span class="upload-hint">
+                                JPG, PNG or WEBP • Clear full-plant image recommended
+                            </span>
+
+                            <button
+                                type="button"
+                                class="secondary-button small"
+                                id="browseButton"
+                            >
+                                <i class="fa-solid fa-folder-open"></i>
+                                Choose Image
+                            </button>
+                        </div>
+
+
+                        <div
+                            class="uploaded-preview hidden"
+                            id="uploadedPreview"
+                        >
+
+                            <img
+                                id="previewImage"
+                                src=""
+                                alt="Uploaded orange plant"
+                            >
+
+                            <div class="image-overlay">
+
+                                <span id="imageFileName">
+                                    plant-image.jpg
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="icon-button danger"
+                                    id="removeImage"
+                                    title="Remove image"
+                                >
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="image-quality-box hidden" id="imageQualityBox">
+
+                        <div class="quality-header">
+                            <div>
+                                <span class="eyebrow">IMAGE QUALITY GATE</span>
+                                <h3 id="qualityTitle">Checking image...</h3>
+                            </div>
+
+                            <div
+                                class="quality-score"
+                                id="qualityScore"
+                            >
+                                --%
+                            </div>
+                        </div>
+
+                        <div class="quality-grid">
+
+                            <div>
+                                <span>Resolution</span>
+                                <strong id="qualityResolution">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Brightness</span>
+                                <strong id="qualityBrightness">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Sharpness</span>
+                                <strong id="qualitySharpness">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Visibility</span>
+                                <strong id="qualityVisibility">--</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="quality-message" id="qualityMessage">
+                            Upload an image to begin.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DETAILS -->
+
+                <div class="glass-panel form-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <span class="eyebrow">PLANT RECORD</span>
+                            <h2>Basic Information</h2>
+                        </div>
+                    </div>
+
+                    <form id="assessmentForm">
+
+                        <div class="form-grid">
+
+                            <label class="field">
+                                <span>Plant ID *</span>
+                                <input
+                                    type="text"
+                                    id="plantId"
+                                    placeholder="e.g. ORG-1047"
+                                    required
+                                >
+                            </label>
+
+                            <label class="field">
+                                <span>Batch ID</span>
+                                <input
+                                    type="text"
+                                    id="batchId"
+                                    placeholder="e.g. NGP-2026-B04"
+                                >
+                            </label>
+
+                            <label class="field">
+                                <span>Nursery / Source *</span>
+                                <input
+                                    type="text"
+                                    id="nursery"
+                                    placeholder="e.g. Green Valley Nursery"
+                                    required
+                                >
+                            </label>
+
+                            <label class="field">
+                                <span>Variety *</span>
+                                <select id="variety" required>
+                                    <option value="">Select variety</option>
+                                    <option>Nagpur Orange</option>
+                                    <option>Mosambi</option>
+                                    <option>Sweet Orange</option>
+                                    <option>Other / Unknown</option>
+                                </select>
+                            </label>
+
+                        </div>
+
+
+                        <div class="demo-box">
+
+                            <div class="demo-box-heading">
+                                <div>
+                                    <span class="eyebrow">DEMO CONTROL</span>
+                                    <strong>Prototype AI Scenario</strong>
+                                </div>
+
+                                <i class="fa-solid fa-flask"></i>
+                            </div>
+
+                            <p>
+                                Use this only for reliable competition demonstrations.
+                                A future ML model can replace this inference layer.
+                            </p>
+
+                            <select id="demoScenario">
+                                <option value="auto">
+                                    Automatic Demo Assessment
+                                </option>
+
+                                <option value="healthy">
+                                    Demo: Healthy / Suitable
+                                </option>
+
+                                <option value="questionable">
+                                    Demo: Questionable / Expert Review
+                                </option>
+
+                                <option value="poor">
+                                    Demo: Poor Plant / Not Recommended
+                                </option>
+
+                                <option value="badimage">
+                                    Demo: Insufficient Image Quality
+                                </option>
+                            </select>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-button full-width"
+                            id="analyzeButton"
+                        >
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            Analyze Plant
+                            <i class="fa-solid fa-arrow-right button-arrow"></i>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANALYSIS RESULT -->
+
+            <div
+                class="analysis-result hidden"
+                id="analysisResult"
+            >
+
+                <div class="section-divider">
+                    <span></span>
+                    <strong>AI ASSESSMENT RESULT</strong>
+                    <span></span>
+                </div>
+
+
+                <div class="result-hero glass-panel">
+
+                    <div class="result-main">
+
+                        <div
+                            class="score-ring"
+                            id="scoreRing"
+                        >
+                            <div class="score-ring-inner">
+                                <strong id="overallScore">--</strong>
+                                <span>/ 100</span>
+                            </div>
+                        </div>
+
+                        <div class="result-copy">
+
+                            <span class="eyebrow">
+                                PROTOTYPE AI RECOMMENDATION
+                            </span>
+
+                            <h2 id="resultStatus">
+                                Awaiting Assessment
+                            </h2>
+
+                            <p id="resultSummary">
+                                Upload a plant image to begin.
+                            </p>
+
+                            <div class="result-tags">
+
+                                <span id="confidenceTag" class="status-tag">
+                                    Confidence --
+                                </span>
+
+                                <span id="qualityTag" class="status-tag">
+                                    Image --
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="result-actions">
+
+                        <button
+                            class="secondary-button"
+                            id="viewExplanationButton"
+                        >
+                            <i class="fa-solid fa-lightbulb"></i>
+                            Why this result?
+                        </button>
+
+                        <button
+                            class="secondary-button"
+                            data-view="truetype"
+                        >
+                            <i class="fa-solid fa-code-compare"></i>
+                            True-to-Type
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI FACTORS -->
+
+                <div class="ai-result-grid">
+
+                    <div class="glass-panel factor-card-large">
+
+                        <div class="card-heading">
+                            <div>
+                                <span class="eyebrow">MULTI-FACTOR ANALYSIS</span>
+                                <h2>AI Evidence</h2>
+                            </div>
+                        </div>
+
+                        <div id="aiFactors" class="ai-factors">
+                            <!-- JS -->
+                        </div>
+
+                    </div>
+
+
+                    <div class="glass-panel evidence-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <span class="eyebrow">DECISION BASIS</span>
+                                <h2>Why AI Decided This</h2>
+                            </div>
+                        </div>
+
+                        <div id="positiveEvidence" class="evidence-list">
+                            <!-- JS -->
+                        </div>
+
+                        <div class="evidence-divider"></div>
+
+                        <div id="riskEvidence" class="evidence-list">
+                            <!-- JS -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NEXT STEP -->
+
+                <div class="next-step-card glass-panel">
+
+                    <div class="next-step-icon">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+
+                    <div>
+                        <span class="eyebrow">RECOMMENDED NEXT STEP</span>
+                        <h3 id="nextStepTitle">Awaiting result</h3>
+                        <p id="nextStepText"></p>
+                    </div>
+
+                    <button
+                        class="primary-button"
+                        id="sendToExpertButton"
+                    >
+                        <i class="fa-solid fa-user-doctor"></i>
+                        Send to Expert
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TRUE TO TYPE VIEW
+        ====================================================== -->
+
+        <section class="view" id="view-truetype">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">STEP 02 • VARIETY SCREENING</span>
+                    <h1>AI-Assisted True-to-Type</h1>
+                    <p>
+                        Compare the assessed plant against the selected variety's
+                        visual reference profile.
+                    </p>
+                </div>
+
+                <div class="header-chip">
+                    <i class="fa-solid fa-code-compare"></i>
+                    Visual Screening
+                </div>
+
+            </div>
+
+
+            <div class="comparison-grid">
+
+                <div class="comparison-card glass-panel">
+
+                    <div class="comparison-header">
+                        <span>REFERENCE PROFILE</span>
+                        <span class="reference-badge">EXPECTED</span>
+                    </div>
+
+                    <div class="comparison-image reference-image">
+                        <div class="reference-plant-art">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+
+                        <div class="image-corner-label">
+                            Nagpur Orange
+                        </div>
+                    </div>
+
+                    <div class="reference-details">
+
+                        <div>
+                            <span>Leaf profile</span>
+                            <strong>Elliptic / healthy</strong>
+                        </div>
+
+                        <div>
+                            <span>Canopy</span>
+                            <strong>Balanced</strong>
+                        </div>
+
+                        <div>
+                            <span>Growth pattern</span>
+                            <strong>Vigorous</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-center">
+
+                    <div class="vs-circle">
+                        VS
+                    </div>
+
+                    <div class="similarity-ring" id="similarityRing">
+                        <div>
+                            <strong id="similarityScore">--%</strong>
+                            <span>Similarity</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-card glass-panel">
+
+                    <div class="comparison-header">
+                        <span>ASSESSED PLANT</span>
+                        <span class="assessment-badge">AI</span>
+                    </div>
+
+                    <div
+                        class="comparison-image assessed-image"
+                        id="typeAssessedImage"
+                    >
+                        <div class="empty-image-state">
+                            <i class="fa-solid fa-image"></i>
+                            <span>Assessment image</span>
+                        </div>
+                    </div>
+
+                    <div class="reference-details">
+
+                        <div>
+                            <span>Leaf profile</span>
+                            <strong id="typeLeaf">--</strong>
+                        </div>
+
+                        <div>
+                            <span>Canopy</span>
+                            <strong id="typeCanopy">--</strong>
+                        </div>
+
+                        <div>
+                            <span>Growth pattern</span>
+                            <strong id="typeGrowth">--</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel type-analysis-card">
+
+                <div class="card-heading">
+                    <div>
+                        <span class="eyebrow">VISUAL FEATURE COMPARISON</span>
+                        <h2>True-to-Type Evidence</h2>
+                    </div>
+
+                    <span class="status-tag blue-tag">
+                        AI-ASSISTED
+                    </span>
+                </div>
+
+                <div id="typeFactors" class="type-factor-grid">
+                    <!-- JS -->
+                </div>
+
+                <div class="type-disclaimer">
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <span>
+                        This is an AI-assisted visual screening result.
+                        RGB imagery alone cannot conclusively establish genetic
+                        or varietal identity. Final confirmation should use
+                        validated reference material, expert inspection or
+                        additional sensing where required.
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel type-conclusion">
+
+                <div class="conclusion-icon">
+                    <i class="fa-solid fa-dna"></i>
+                </div>
+
+                <div>
+                    <span class="eyebrow">SCREENING CONCLUSION</span>
+                    <h2 id="typeConclusion">
+                        Complete an assessment to view true-to-type screening.
+                    </h2>
+                    <p id="typeConclusionText"></p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EXPERT PORTAL
+        ====================================================== -->
+
+        <section class="view" id="view-expert">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">STEP 03 • HUMAN-IN-THE-LOOP</span>
+                    <h1>Expert Review Portal</h1>
+                    <p>
+                        Review AI evidence, inspect the plant and make the final
+                        human decision.
+                    </p>
+                </div>
+
+                <div class="header-chip expert-chip">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    Expert Mode
+                </div>
+
+            </div>
+
+
+            <div class="expert-layout">
+
+                <div class="glass-panel review-queue">
+
+                    <div class="card-heading">
+                        <div>
+                            <span class="eyebrow">REVIEW QUEUE</span>
+                            <h2>Cases</h2>
+                        </div>
+
+                        <span
+                            class="queue-count"
+                            id="queueCount"
+                        >
+                            0 Pending
+                        </span>
+                    </div>
+
+                    <div
+                        class="queue-list"
+                        id="expertQueue"
+                    >
+                        <!-- JS -->
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="glass-panel expert-case"
+                    id="expertCasePanel"
+                >
+
+                    <div class="empty-state">
+
+                        <div class="empty-state-icon">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+
+                        <h2>Select a Case</h2>
+
+                        <p>
+                            Choose a pending assessment from the review queue
+                            to inspect its AI evidence.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             REPORTS VIEW
+        ====================================================== -->
+
+        <section class="view" id="view-reports">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">STEP 04 • FINAL DECISION</span>
+                    <h1>Assessment Reports</h1>
+                    <p>
+                        Connected final recommendations generated from AI assessment
+                        and expert decisions.
+                    </p>
+                </div>
+
+                <button
+                    class="secondary-button"
+                    id="printLatestButton"
+                >
+                    <i class="fa-solid fa-print"></i>
+                    Print Latest Report
+                </button>
+
+            </div>
+
+
+            <div id="reportsList" class="reports-list">
+                <!-- JS -->
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     EXPLANATION MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="explanationModal"
+>
+
+    <div class="modal glass-panel">
+
+        <button
+            class="modal-close"
+            data-close-modal="explanationModal"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <span class="eyebrow">EXPLAINABLE AI</span>
+
+        <h2>Why did AI give this result?</h2>
+
+        <p class="modal-intro">
+            The prototype combines multiple visual indicators instead of relying
+            on a single characteristic.
+        </p>
+
+        <div id="explanationContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NOTIFICATION MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="notificationModal"
+>
+
+    <div class="modal glass-panel small-modal">
+
+        <button
+            class="modal-close"
+            data-close-modal="notificationModal"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <span class="eyebrow">SYSTEM NOTIFICATIONS</span>
+
+        <h2>Notifications</h2>
+
+        <div id="notificationContent">
+            <!-- JS -->
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <div class="toast-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div>
+        <strong id="toastTitle">Success</strong>
+        <span id="toastMessage">Action completed.</span>
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PRINT REPORT
+========================================================= -->
+
+<div id="printReport" class="print-report">
+    <!-- JS -->
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
